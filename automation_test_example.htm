@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automation Testing Example</title>
+</head>
+<body>
+    <h1>Welcome to the Automation Testing Example Page</h1>
+
+    <div id="login-form">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button id="login-button">Login</button>
+        <p id="login-message"></p>
+    </div>
+
+    <div id="calculator">
+        <h2>Simple Calculator</h2>
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1"><br><br>
+
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2"><br><br>
+
+        <button id="add-button">Add</button>
+        <button id="subtract-button">Subtract</button>
+        <p id="result"></p>
+    </div>
+
+    <div id="dynamic-content">
+        <h2>Dynamic Content</h2>
+        <button id="change-text-button">Change Text</button>
+        <p id="dynamic-text">Initial Text</p>
+    </div>
+
+    <div id="checkboxes">
+        <h2>Checkboxes</h2>
+        <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+        <label for="checkbox1"> Checkbox 1</label><br>
+        <input type="checkbox" id="checkbox2" name="checkbox2" value="value2">
+        <label for="checkbox2"> Checkbox 2</label><br>
+        <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">
+        <label for="checkbox3"> Checkbox 3</label><br><br>
+        <button id="check-checkboxes">Check Status</button>
+        <p id="checkbox-status"></p>
+    </div>
+
+    <div id="dropdowns">
+      <h2>Dropdowns</h2>
+
+      <label for="fruits">Choose a fruit:</label>
+      <select id="fruits" name="fruits">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+      </select>
+
+      <label for="cars">Choose a car:</label>
+      <select id="cars" name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+
+    <script>
+        document.getElementById("login-button").addEventListener("click", function() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username === "testuser" && password === "password123") {
+                document.getElementById("login-message").textContent = "Login successful!";
+            } else {
+                document.getElementById("login-message").textContent = "Login failed.";
+            }
+        });
+
+        document.getElementById("add-button").addEventListener("click", function() {
+            const num1 = parseInt(document.getElementById("num1").value);
+            const num2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("result").textContent = "Result: " + (num1 + num2);
+        });
+
+        document.getElementById("subtract-button").addEventListener("click", function() {
+            const num1 = parseInt(document.getElementById("num1").value);
+            const num2 = parseInt(document.getElementById("num2").value);
+            document.getElementById("result").textContent = "Result: " + (num1 - num2);
+        });
+
+        document.getElementById("change-text-button").addEventListener("click", function() {
+            document.getElementById("dynamic-text").textContent = "Text changed!";
+        });
+
+        document.getElementById("check-checkboxes").addEventListener("click", function() {
+            let status = "";
+            if (document.getElementById("checkbox1").checked) {
+                status += "Checkbox 1 is checked. ";
+            } else {
+                status += "Checkbox 1 is unchecked. ";
+            }
+            if (document.getElementById("checkbox2").checked) {
+                status += "Checkbox 2 is checked. ";
+            } else {
+                status += "Checkbox 2 is unchecked. ";
+            }
+            if (document.getElementById("checkbox3").checked) {
+                status += "Checkbox 3 is checked. ";
+            } else {
+                status += "Checkbox 3 is unchecked. ";
+            }
+            document.getElementById("checkbox-status").textContent = status;
+        });
+
+    </script>
+</body>
+</html>
